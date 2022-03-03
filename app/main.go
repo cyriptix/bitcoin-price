@@ -38,7 +38,7 @@ func getBitcoinPrice() string {
 		body, _ := ioutil.ReadAll(response.Body)
 		json.Unmarshal(body, &result)
 		p = result.Data.Amount
-		fmt.Printf("updated price to %s\n", p)
+		fmt.Printf("Updated price to %s\n", p)
 		time.Sleep(60 * time.Second)
 	}
 }

@@ -7,7 +7,7 @@ metadata:
     cert-manager.io/cluster-issuer: "letsencrypt"
   labels:
     app: bitcoin-price
-  name: bitcoin-price
+  name: bitcoin-price-ingress
   namespace: bitcoin-price
 spec:
   rules:
