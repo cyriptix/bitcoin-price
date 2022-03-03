@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: bentest.appinfra.aws.stage.brandwatch.net
+    external-dns.alpha.kubernetes.io/hostname: bitcoin-price.shmead.co.uk
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt"
   labels:
@@ -11,7 +11,7 @@ metadata:
   namespace: bitcoin-price
 spec:
   rules:
-  - host: bentest.appinfra.aws.stage.brandwatch.net
+  - host: bitcoin-price.shmead.co.uk
     http:
       paths:
       - backend:
@@ -20,5 +20,5 @@ spec:
         path: /
   tls:
   - hosts:
-    - bentest.appinfra.aws.stage.brandwatch.net
+    - bitcoin-price.shmead.co.uk
     secretName: bitcoin-price-certificate
