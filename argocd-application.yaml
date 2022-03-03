@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bitcoin-price
+  namespace: argocd
+  labels:
+    service: bitcoin-price
+    env: production
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  syncPolicy:
+    automated: {}
+  source:
+    repoURL: git@github.com:cyriptix/bitcoin-price.git
+    path: manifests
+    targetRevision: master
+  destination:
+    name: my-cluster
+    namespace: bitcoin-price

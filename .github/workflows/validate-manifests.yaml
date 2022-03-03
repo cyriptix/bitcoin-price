@@ -1,0 +1,16 @@
+name: validate-manifests
+
+on:
+  pull_request:
+    paths:
+      - manifests/*
+
+jobs:
+  kubeval:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: test
+      uses: instrumenta/kubeval-action@master
+      with:
+        files: manifests/

@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: bentest.appinfra.aws.stage.brandwatch.net
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt"
+  labels:
+    app: bitcoin-price
+  name: bitcoin-price
+  namespace: bitcoin-price
+spec:
+  rules:
+  - host: bentest.appinfra.aws.stage.brandwatch.net
+    http:
+      paths:
+      - backend:
+          serviceName: bitcoin-price
+          servicePort: 8080
+        path: /
+  tls:
+  - hosts:
+    - bentest.appinfra.aws.stage.brandwatch.net
+    secretName: bitcoin-price-certificate

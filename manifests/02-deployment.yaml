@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: bitcoin-price
+  name: bitcoin-price
+  namespace: bitcoin-price
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bitcoin-price
+  template:
+    metadata:
+      labels:
+        app: bitcoin-price
+    spec:
+      containers:
+      - name: bitcoin-price
+        image: "cyriptix/bitcoin-price:latest"
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
